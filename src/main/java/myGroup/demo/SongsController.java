@@ -24,7 +24,7 @@ public class SongsController {
 
     //Add song
     @RequestMapping(value="/add", method = RequestMethod.POST)
-    public Song addSong(Song song)  
+    public Song addSong(@RequestBody Song song)  
     {
         return service.addSong(song);
     }
