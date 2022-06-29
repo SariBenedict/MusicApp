@@ -1,11 +1,10 @@
 package myGroup.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("songs")
@@ -31,22 +30,22 @@ public class SongsController {
 
 
 
-    // @GetMapping("/{artist}")
-    // public ArrayList<Song> getByArtist(String artist)
-    // {
-    //     service.gatByArtist(artist);
-    // }
+     @RequestMapping(value="/artist{artist}" , method = RequestMethod.GET)
+     public List<Song> getByArtist(@PathVariable String artist)
+    {
+         return service.getByArtist(artist);
+    }
 
-    // @GetMapping("getById/{id}")
-    // public Song getById(int id)
-    // {
-    //     return service.getById(id);
-    // }
+    @RequestMapping(value = "id", method =RequestMethod.GET)
+    public Song getById(@PathVariable int id)
+    {
+         return service.getById(id);
+    }
 
-    // @DeleteMapping("/{id}")
-    // public void deleteSongById(int id)
-    // {
-    //     service.deleteSongById(id);
-    // }
+    @RequestMapping(value = "id", method =RequestMethod.DELETE)
+    public void deleteSongById(@PathVariable int id)
+    {
+         service.deleteSongById(id);
+    }
 
 }

@@ -3,7 +3,6 @@ package myGroup.demo;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Service
@@ -17,7 +16,7 @@ public class SongsServiceImp implements SongsService{
     //Add a defult song
     public void addDefultSong()
     {
-        Song s1 = new Song(0, "kol dodi","Ishay Ribo",Genere.POP,4,15);
+        Song s1 = new Song(0, "kol dodi","Ishay",Genere.POP,4,15);
         songs.add(s1);
     }
 
